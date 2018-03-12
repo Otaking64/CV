@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon"
+          type="image/png"
+          href="assets/image/logo3.png">
+    <title>Title</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v1.4.1/dist/aframe-physics-system.min.js"></script>
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/credits.js"></script>
+</head>
+<body>
+<a-scene auto-enter-vr>
+
+    <a-assets timeout="20000">
+
+    <a-asset-item id="plant1-obj" src="assets/models/sprout.obj"></a-asset-item>
+    <a-asset-item id="plant1-mtl" src="assets/models/sprout.mtl"></a-asset-item>
+
+    </a-assets>
+
+    <a-sky id="sky" color="white"></a-sky>
+
+
+    <a-text value="Made by" color="black" position="-0.5 2.5 -3"></a-text>
+    <a-text value="Alex Westendorp & Kevin Gram" color="black" position="-1.5 2.2 -3"></a-text>
+    <a-text value="Thank you for visiting!" color="black" position="-1.1 1.9 -3"></a-text>
+    <a-box  width="1" height="1" depth="1" position="0 0 -4" visible="true" color="#693715"></a-box>
+    <a-entity obj-model="obj: #plant1-obj; mtl: #plant1-mtl" scale="1 0.7 1" position="0 0.5 -4" rotation="0 0 0"></a-entity>
+
+
+
+</a-scene>
+</body>
+</html>

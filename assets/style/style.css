@@ -1,0 +1,193 @@
+#VRmode{
+    background-color: black;
+    color: white;
+    width: 50px;
+    height: 35px;
+    float: right;
+    border-color: black;
+
+    position:fixed;
+    bottom: 10%;
+    right: 5px;
+    box-shadow: 2px 2px #888888;
+}
+
+#VRmode:hover{
+    background-color: darkgreen;
+}
+
+.col-sm-3{
+    margin-top: 2%;
+    text-align: center;
+    box-shadow: 5px 10px #FFFFFF;
+}
+
+.navbar{
+    border-radius: 0;
+    z-index: 2;
+    scroll-behavior: smooth;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 1s ease;
+    color: white;
+    background-color: black;
+}
+
+.text{
+    margin: 10%;
+    font-size: 1.8vw;
+    font-family: monospace Lucida Console;
+}
+.col-sm-3:hover .overlay {
+    opacity: 1;
+}
+
+#content{
+    margin: 2%;
+    padding-bottom: 5%;
+    z-index: 1;
+    background-color: white;
+
+}
+body{
+    scroll-behavior: smooth;
+}
+
+.Footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+#footerText {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-left: 1%;
+}
+
+p{
+    font-family: monospace Lucida Console;
+    font-size: 16px;
+}
+h1{
+    font-family: monospace Lucida Console;
+}
+
+#Skills{
+    margin-top: 2%;
+}
+
+#About{
+    text-align: center;
+    margin-top: 5%;
+}
+
+#Contact{
+    text-align: center;
+    margin-top: 5%;
+}
+#Tabout, #Tcontact{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+#StartText{
+    width: 50%;
+}
+
+
+#Projects, #Skills{
+    text-align: center;
+}
+
+#Start{
+    text-align: center;
+    
+}
+
+#detailsPage{
+    background-color: black;
+    color: white;
+    left:0;
+    position: fixed;
+    height:100%;
+    width:100%;
+    z-index: -10;
+    opacity: 0;
+    border: 1px solid black;
+    display: block;
+    transition:z-index 1s ease, opacity 1s ease;
+    padding-bottom: 5%;
+}
+
+#detailsPage:target {
+    z-index: 99;
+    opacity: 1;
+}
+
+.close {
+    color: #fff;
+    opacity: 1;
+}
+
+#detailImg{
+   margin: auto;
+    width: 80%;
+}
+
+#dark{
+    background-color: #303336;
+    color: white;
+    padding: 2%;
+    margin-bottom: 5%;
+    box-shadow: 3px 4px 7px -1px rgba(0,0,0,0.75);
+}
+#pfp{
+    width: 20%;
+}
+
+#hiddenTitle{
+    opacity: 0;
+}
+@media screen and (max-width: 768px) and (min-width: 360px){
+    #Links h1{
+        text-align: center;
+    }
+
+    #Links2 h1{
+        font-size: 1px;
+    }
+
+    #detailImg{
+        width: 60%;
+        margin-left: 20%;
+    }
+    #detailpic{
+        margin-top: 10%;
+        align-content: center;
+    }
+
+    #detailsPage{
+        overflow: auto;
+    }
+    .text{
+
+        font-size: 5vw;
+
+    }
+
+    .col-sm-3{
+        margin-top: 10%;
+    }
+}

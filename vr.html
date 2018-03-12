@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alex Westendorp VR</title>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="mainVR.js"></script>
+</head>
+<body>
+<a-scene>
+
+    <a-camera id="camera" position="0 0 0" userHeight="1.8" look-controls="enabled: true">
+
+        <a-cursor id="cursor" fuse="true" fuseTimeout="1300" color="#32CD32" raycaster=""  position="0 0 0" visible="true">
+            <a-animation begin="fuse" easing="ease-in" attribute="scale" dur="1500" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+            <a-animation begin="click" easing="ease-in" attribute="scale" dur="1" fill="forwards" to="1 1 1"></a-animation>
+        </a-cursor>
+
+    </a-camera>
+
+    <a-sky color="black"></a-sky>
+    <a-plane height="10" width="10" color="#F7BF8F" position="0 0 0" rotation="-90 0 0"></a-plane>
+    <a-plane height="5" width="10" color="white" position="0 2.5 -5" rotation="0 0 0"></a-plane>
+    <a-plane height="5" width="10" color="white" position="5 2.5 0" rotation="0 -90 0"></a-plane>
+    <a-plane height="5" width="10" color="white" position="-5 2.5 0" rotation="0 90 0"></a-plane>
+    <a-plane height="10" width="10" color="white" position="0 5 -0" rotation="90 0 0"></a-plane>
+    <a-plane height="5" width="10" color="white" position="0 2.5 5" rotation="0 180 0"></a-plane>
+
+    <a-plane id="nextbutton" height="0.2" width="0.5" color="black" position="4.9 2 0" rotation="0 -90 0"></a-plane>
+    <a-text id="nextText" align="center" value="Next" color="white" position="4.9 2 0" rotation="0 -90 0"></a-text>
+    <a-plane id="prevbutton" height="0.2" width="0.9" color="black" position="-4.9 2 0" rotation="0 90 0" visible="false"></a-plane>
+    <a-text id="prevText" align="center" value="Previous" color="white" position="-4.9 2 0" rotation="0 90 0" visible="false"></a-text>
+
+    <a-image id="imageView" height="3" width="3" material="src: url(assets/image/Aframe.png)" position="-2.2 2.5 -4.9"></a-image>
+    <a-text id="textView"
+            position="2 2.5 -4.9"
+            align="center"
+            color="black"
+            value="Welcome to vr mode! In here I made all the content into a 3D space using Aframe.
+    To your right there is a button next which will take you to the next room where you will find the first project. There you will also find a button that says 'prev' you can go back anytime using this. To interact with the buttons simply look at them with the circle in the middle of you vision">
+
+    </a-text>
+
+
+</a-scene>
+
+</body>
+</html>

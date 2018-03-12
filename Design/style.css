@@ -1,0 +1,25 @@
+.navbar{
+    border-radius: 0;
+    z-index: 2;
+}
+
+.Footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+#footerText {
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    margin-left: 1%;
+}
+
+p{
+    font-family: monospace Lucida Console;
+    font-size: 16px;
+}
+

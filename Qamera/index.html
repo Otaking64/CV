@@ -1,0 +1,148 @@
+<!doctype HTML>
+<html>
+	<head>
+		<title>Qamera | Qake VR</title>
+		<meta charset="UTF-8"/>
+		<script src="https://aframe.io/releases/0.4.0/aframe.min.js"></script>
+		<script src="assets/js/jquery-3.1.1.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<style>
+			#play-button {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				z-index: 10;
+				opacity: 0.7;
+				background-color: black;
+				font-size: 16px;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+	<button id="play-button">Touch the screen to start </br></br> To interact with an object look at it with the circle for a second. </br></br> Good Luck!</button>
+
+	<a-scene id="scene">
+			<a-assets timeout="20000">
+				<a-asset-item id="qamera1-obj" src="assets/obj/qamera1.obj"></a-asset-item>
+				<a-asset-item id="qamera1-mtl" src="assets/obj/qamera1.mtl"></a-asset-item>
+				<a-asset-item id="qamera2-obj" src="assets/obj/qamera2.obj"></a-asset-item>
+				<a-asset-item id="qamera2-mtl" src="assets/obj/qamera2.mtl"></a-asset-item>
+				<a-asset-item id="bureau-obj" src="assets/obj/bureau.obj"></a-asset-item>
+				<a-asset-item id="bureau-mtl" src="assets/obj/bureau.mtl"></a-asset-item>
+				<a-asset-item id="scherm-obj" src="assets/obj/scherm.obj"></a-asset-item>
+				<a-asset-item id="scherm-mtl" src="assets/obj/scherm.mtl"></a-asset-item>
+				<a-asset-item id="sdkaart-obj" src="assets/obj/sdkaart.obj"></a-asset-item>
+				<a-asset-item id="sdkaart-mtl" src="assets/obj/sdkaart.mtl"></a-asset-item>
+				<a-asset-item id="batterij-obj" src="assets/obj/batterij.obj"></a-asset-item>
+				<a-asset-item id="batterij-mtl" src="assets/obj/batterij.mtl"></a-asset-item>
+				<a-asset-item id="box-obj" src="assets/obj/box.obj"></a-asset-item>
+				<a-asset-item id="box-mtl" src="assets/obj/box.mtl"></a-asset-item>
+				<a-asset-item id="lamp-obj" src="assets/obj/lamp.obj"></a-asset-item>
+				<a-asset-item id="lamp-mtl" src="assets/obj/lamp.mtl"></a-asset-item>
+				<a-asset-item id="prullenbak-obj" src="assets/obj/prullenbak.obj"></a-asset-item>
+				<a-asset-item id="prullenbak-mtl" src="assets/obj/prullenbak.mtl"></a-asset-item>
+				<a-asset-item id="bed-obj" src="assets/obj/bed.obj"></a-asset-item>
+				<a-asset-item id="bed-mtl" src="assets/obj/bed.mtl"></a-asset-item>
+				<a-asset-item id="stoel-obj" src="assets/obj/stoel.obj"></a-asset-item>
+				<a-asset-item id="stoel-mtl" src="assets/obj/stoel.mtl"></a-asset-item>
+				<a-asset-item id="deur-obj" src="assets/obj/deur.obj"></a-asset-item>
+				<a-asset-item id="deur-mtl" src="assets/obj/deur.mtl"></a-asset-item>
+				<a-asset-item id="kozijn-obj" src="assets/obj/kozijn.obj"></a-asset-item>
+				<a-asset-item id="kozijn-mtl" src="assets/obj/kozijn.mtl"></a-asset-item>
+				<a-asset-item id="kast-obj" src="assets/obj/kastje.obj"></a-asset-item>
+				<a-asset-item id="kast-mtl" src="assets/obj/kastje.mtl"></a-asset-item>
+				<video id="KoudeVideo180" src="assets/video/Koud180.mp4">
+				<video id="NormaleVideo0" src="assets/video/Normaal0.mp4">
+				<video id="WarmeVideo" src="assets/video/Warm.mp4">
+				<img id="WarmRaam" src="assets/img/zomerraam.png">
+				<img id="NormaalRaam" src="assets/img/normaalraam.png">
+				<img id="KoudRaam" src="assets/img/winterraam.png">
+				<img id="DesktopWarm" src="assets/img/desktopwarm.jpg">
+				<img id="DesktopNormaal" src="assets/img/desktopnormaal.jpg">
+				<img id="DesktopKoud" src="assets/img/desktopkoud.jpg">
+				<audio id="Klik" src="assets/sounds/3803.mp3" >
+				<audio id="LamKno" src="assets/sounds/2183.mp3" >
+				<audio id="Pakso2" src="assets/sounds/9391.mp3" >
+				<audio id="Pakso1" src="assets/sounds/9389.mp3" >
+				<img id="LowBat" src="assets/img/lowbat.png">
+				<img id="NoSd" src="assets/img/nosd.png">
+				<img id="pauzeimg" src="assets/img/pauze.png">
+				<img id="playimg" src="assets/img/play.png">
+				<a-mixin id="muur" geometry="primitive: plane; height: 3; width: 5" material="src: assets/img/behang.png"></a-mixin>
+				<a-mixin id="vloer" geometry="primitive: plane; height: 5; width: 5" material="src: assets/img/hout1.png"></a-mixin>
+				<a-mixin id="plafond" geometry="primitive: plane; height: 5; width: 5" material="color: #F4F4ED"></a-mixin>
+			</a-assets>
+			
+			<a-entity light="type: ambient; color: #BBB"></a-entity>
+			<a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+			<a-entity id="BLicht" light="type: spot; angle: 45; color: #FFF; intensity: 0.9; distance: 1;" position="0.8 1.25 -1.3" rotation="-60 130 0" ></a-entity>
+			
+			<!-- De camera -->
+			<a-entity>
+				<a-camera id="Camera" userHeight="1.8"  position="0 0 0" look-controls="enabled: false">
+					<a-cursor id="cursor" fuse="false" fuseTimeout="1300" color="#32CD32" raycaster=""  position="0 0 0.5" visible="false">
+						<a-animation begin="fuse" easing="ease-in" attribute="scale" dur="1500" fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+						<a-animation begin="click" easing="ease-in" attribute="scale" dur="1" fill="forwards" to="1 1 1"></a-animation>
+					</a-cursor>
+					
+					<!--Alles wat vastgehouden word -->
+					<a-entity id="Vast">
+						<a-entity id='BatVast' obj-model='obj: #batterij-obj; mtl: #batterij-mtl' scale='0.04 0.04 0.04' position='0.1 0 -0.5' rotation='0 0 0' visible="false"></a-entity>
+						<a-entity id='sdVast' obj-model='obj: #sdkaart-obj; mtl: #sdkaart-mtl' scale='0.01 0.01 0.01' position='0.1 0 -0.5' rotation='0 0 0' visible="false"></a-entity>
+					</a-entity>
+					
+				</a-camera>
+			</a-entity>
+			
+			<!-- De kamer waar de VR experience start -->
+			<a-entity id="beginkamer">
+			
+			<!-- De muren van de kamer -->
+				<a-entity>
+					<a-entity mixin="muur" position="0 1.5 -2"></a-entity>
+					<a-entity mixin="muur" position="-2.5 1.5 0.5" rotation="0 90 0"></a-entity>
+					<a-entity mixin="muur" position="2.5 1.5 0.5" rotation="0 -90 0"></a-entity>
+					<a-entity mixin="muur" position="0 1.5 3" rotation="0 180 0" ></a-entity>
+					<a-entity mixin="vloer" position="0 0 0.5" rotation="-90 0 0"></a-entity>
+					<a-entity mixin="plafond" position="0 3 0.5" rotation="90 0 0"></a-entity>
+				</a-entity>
+			
+			
+			<!-- De meubelen -->
+				<a-entity>
+					<a-entity obj-model="obj: #bureau-obj; mtl: #bureau-mtl" scale="1.5 1.5 1.5" position="0 0 -1" rotation=""></a-entity>
+					<a-entity obj-model="obj: #scherm-obj; mtl: #scherm-mtl" scale="0.3 0.3 0.3" position="0 1.05 -1.3" rotation=""></a-entity>
+					<a-entity obj-model="obj: #prullenbak-obj; mtl: #prullenbak-mtl" scale="0.25 0.25 0.25" position="1.8 0 -0.25" rotation=""></a-entity>
+					<a-entity id="Lamp" obj-model="obj: #lamp-obj; mtl: #lamp-mtl" scale="0.5 0.5 0.5" position="0.8 1.05 -1.3" rotation="0 -45 0"></a-entity>
+					<a-entity obj-model="obj: #box-obj; mtl: #box-mtl" scale="0.2 0.2 0.2" position="-0.75 1.2 -0.75" rotation=""></a-entity>
+					<a-entity obj-model="obj: #bed-obj; mtl: #bed-mtl" scale="0.65 0.65 0.65" position="-0.95 0 2.15" rotation="0 90 0"></a-entity>
+					<a-entity obj-model="obj: #stoel-obj; mtl: #stoel-mtl" scale="0.6 0.6 0.6" position="" rotation="0 180 0"></a-entity>
+					<a-entity obj-model="obj: #deur-obj; mtl: #deur-mtl" scale="0.6 0.6 0.6" position="1.25 0 3" rotation="0 180 0"></a-entity>
+					<a-entity obj-model="obj: #kozijn-obj; mtl: #kozijn-mtl" scale="1.6 1.2 1.2" position="2.5 1.7 0.5" rotation="0 90 0"></a-entity>
+					<a-entity obj-model="obj: #kast-obj; mtl: #kast-mtl" scale="1.5 1.5 1.5" position="-2 0 0.95" rotation="0 90 0"></a-entity>
+					<a-entity id="Qamera" obj-model="obj: #qamera1-obj; mtl: #qamera1-mtl" scale="0.04 0.04 0.04" position="-0.75 1.2 -0.8" rotation="">
+						<a-plane id='CamScherm' width='2.5' height='1.6' position='0 0 -0.75' rotation='0 180 0'> </a-plane>
+						<a-image id='PauseKnop' material="src: #pauzeimg" width='0.3' height='0.3' position='-1 -0.6 -0.76' rotation='0 180 0' visible="false"> </a-image>
+						<a-image id='PlayKnop' material="src: #playimg" width='0.3' height='0.3' position='1 -0.6 -0.76' rotation='0 180 0' visible="false"> </a-image>
+					</a-entity>					
+					<a-entity id='Batterij' obj-model='obj: #batterij-obj; mtl: #batterij-mtl' scale='0.04 0.04 0.04' position='0.5 1.15 -1"' rotation='0 0 0' visible="true"></a-entity>
+					<a-entity id='SD' obj-model='obj: #sdkaart-obj; mtl: #sdkaart-mtl' scale='0.01 0.01 0.01' position='0.5 1.11 -0.9"' rotation='90 0 0' visible="true"></a-entity>
+				</a-entity>
+			
+				<!-- Het plaatsen van objecten door de gebruiker -->
+				<a-entity id="plaatsen">
+				</a-entity>
+			
+				<a-entity>
+				<a-plane id="PcScherm" material="src: #DesktopNormaal" width="0.8" height ="0.4" position="0 1.45 -1.25"> </a-plane>
+				<a-plane id="Raam" material="src: #NormaalRaam" width="1.4" height ="1.1" position="2.49 1.7 0.5 " rotation="0 -90 0"> </a-plane>
+				</a-entity>
+				
+				
+				
+			</a-entity>
+			
+		</a-scene>
+	</body>
+</html>
