@@ -9,6 +9,7 @@ $(document).ready(function() {
     var care2move = document.getElementById("care2move");
     var noord = document.getElementById("noord");
     var qamera = document.getElementById("vrqamera");
+    var weather = document.getElementById("localWeather");
 
     var link = document.getElementById("link");
     var detailimg = document.getElementById("detailImg");
@@ -128,6 +129,15 @@ $(document).ready(function() {
         detailp.innerHTML = "Using the VR framework Aframe we build an introduction VR experience for the fictional action camera 'Qamera'. " +
         "In this VR application you can experience what it's like to receive and unbox the qamera and you learn the basic set up you need to get the camera working. In the original version the temperature impacted which video you would see on the camera at the end and how the room looks but for the version that is linked on this website it only impacts the look of the room";
         detailheader.innerHTML = "Qamera VR experience";
+        detailpage.style.zIndex = 100;
+        detailpage.style.opacity = 1;
+    });
+
+    weather.addEventListener("click", function () {
+        link.setAttribute("href", "#localWeather");
+        detailimg.setAttribute("src", "assets/image/weather.png");
+        detailp.innerHTML = "This app was written using javascript and Jquery. Then to get it properly working on android I made a native android app with just a webview loading the webpage containing the app. The user gives permission to share location with the website to get a more accurate weather description of the current location of the device.";
+        detailheader.innerHTML = "Local Weather Webapp";
         detailpage.style.zIndex = 100;
         detailpage.style.opacity = 1;
     });
